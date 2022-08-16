@@ -1,0 +1,26 @@
+
+<div>
+    <button routerLink="/restaurantes/nuevo" class="btn btn-success btn-large">
+        Agregar restaurante
+    </button>
+</div>
+<br><br>
+<div class="row">
+    <div class="col-md-4" *ngFor="let restaurant of restaurants">
+        <div class="card text-center">
+            <div class="card-header bg-dark text-white d-flex justify-content-between aling-items-center">
+                {{restaurant.Nombre}}
+                <button class="btn btn-danger" (click)="deleteRestaurant(restaurant.Id)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </div>
+            <img [src]="restaurant.Imagen" class="card-img-top">
+            <div class="card-body">
+                <a [routerLink]="['/restaurantes/editar', restaurant.Id]" class="btn btn-info btn-block">
+                    Editar restaurante
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

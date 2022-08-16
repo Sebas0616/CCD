@@ -1,0 +1,28 @@
+<div class="col-md-4 offset-md-2">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <input type="number" name="id" [(ngModel)]="restaurant.Id" placeholder="Id" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="Nombre" [(ngModel)]="restaurant.Nombre" placeholder="Nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <textarea type="url" name="imagen" [(ngModel)]="restaurant.Imagen" placeholder="Imagen" rows="4" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-success btn-block" (click)="edit ? updateRestaurant() : saveNewRestaurant()">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card card-body text-center">
+        <h3>{{restaurant.Id == 0 ? 'Id' : restaurant.Id}}. {{restaurant.Nombre == '' ? 'Nombre del restaurante' : restaurant.Nombre}}</h3>
+        <img [src]="restaurant.Imagen == '' ? '/assets/Image_not_available.png' : restaurant.Imagen">
+    </div>
+</div>
+
